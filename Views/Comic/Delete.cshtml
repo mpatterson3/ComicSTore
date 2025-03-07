@@ -1,0 +1,35 @@
+@model ComicSTore.Models.Comic
+
+@{
+    ViewData["Title"] = "Delete Comic";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Are you sure you want to delete this comic?</h4>
+<hr />
+<div class="form-group">
+    <label for="Title">Title</label>
+    <input type="text" class="form-control" id="Title" value="@Model.Title" disabled />
+</div>
+<div class="form-group">
+    <label for="Author">Author</label>
+    <input type="text" class="form-control" id="Author" value="@Model.Author" disabled />
+</div>
+<div class="form-group">
+    <label for="Publisher">Publisher</label>
+    <input type="text" class="form-control" id="Publisher" value="@Model.Publisher" disabled />
+</div>
+<div class="form-group">
+    <label for="Price">Price</label>
+    <input type="text" class="form-control" id="Price" value="@Model.Price" disabled />
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </div>
+</form>
+
+<a href="@Url.Action("Index")">Cancel</a>

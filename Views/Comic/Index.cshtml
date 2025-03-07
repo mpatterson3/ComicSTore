@@ -1,0 +1,39 @@
+@model IEnumerable<ComicSTore.Models.Comic>
+
+@{
+    ViewData["Title"] = "Comic List";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a href="@Url.Action("Create")">Create New Comic</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comic in Model)
+        {
+            <tr>
+                <td>@comic.Title</td>
+                <td>@comic.Author</td>
+                <td>@comic.Publisher</td>
+                <td>@comic.Price</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = comic.Id })">Edit</a> |
+                    <a href="@Url.Action("Details", new { id = comic.Id })">Details</a> |
+                    <a href="@Url.Action("Delete", new { id = comic.Id })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
